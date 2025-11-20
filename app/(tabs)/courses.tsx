@@ -7,7 +7,7 @@ import { Curso } from '@/types/api';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
 
-export default function CoursesScreen() {
+const CoursesScreen = () => {
   const [cursos, setCursos] = useState<Curso[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -59,3 +59,5 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
+
+export default CoursesScreen;

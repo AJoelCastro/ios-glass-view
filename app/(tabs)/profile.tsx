@@ -4,7 +4,7 @@ import { ThemedView } from '@/components/themed-view';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-export default function ProfileScreen() {
+const ProfileScreen = () => {
   return (
     <SafeAreaBackground>
       <ThemedView style={styles.container}>
@@ -22,3 +22,5 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
+
+export default ProfileScreen;

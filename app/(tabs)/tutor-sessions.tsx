@@ -6,7 +6,7 @@ import { SesionTutoria } from '@/types/api';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
-export default function TutorSessionsScreen() {
+const TutorSessionsScreen = () => {
   const [items, setItems] = useState<SesionTutoria[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -58,3 +58,5 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
 });
+
+export default TutorSessionsScreen;
