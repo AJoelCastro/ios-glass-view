@@ -1,11 +1,11 @@
 import { CourseCard } from '@/components/course-card';
+import SafeAreaBackground from '@/components/safe-area-background';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { fetchCursos } from '@/services/courseService';
 import { Curso } from '@/types/api';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function CoursesScreen() {
   const [cursos, setCursos] = useState<Curso[]>([]);
@@ -26,7 +26,7 @@ export default function CoursesScreen() {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaBackground>
       <ThemedView style={styles.container}>
         <ThemedText type="title">Cursos</ThemedText>
         
@@ -38,7 +38,7 @@ export default function CoursesScreen() {
           renderItem={({ item }) => <CourseCard curso={item} />}
         />
       </ThemedView>
-    </SafeAreaView>
+    </SafeAreaBackground>
   );
 }
 
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 12,
     gap: 8,
+    height: '100%',
   },
    glassView: {
     position: 'absolute',

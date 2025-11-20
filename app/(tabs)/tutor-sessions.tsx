@@ -1,10 +1,10 @@
+import SafeAreaBackground from '@/components/safe-area-background';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { api } from '@/services/api';
 import { SesionTutoria } from '@/types/api';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TutorSessionsScreen() {
   const [items, setItems] = useState<SesionTutoria[]>([]);
@@ -26,7 +26,7 @@ export default function TutorSessionsScreen() {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaBackground>
       <ThemedView style={styles.container}>
         <ThemedText type="title">Sesiones de Tutoría</ThemedText>
         {loading && <ThemedText>Cargando...</ThemedText>}
@@ -42,7 +42,7 @@ export default function TutorSessionsScreen() {
           )}
         />
       </ThemedView>
-    </SafeAreaView>
+    </SafeAreaBackground>
   );
 }
 
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 12,
     gap: 8,
+    height: '100%',
   },
   item: {
     padding: 10,
