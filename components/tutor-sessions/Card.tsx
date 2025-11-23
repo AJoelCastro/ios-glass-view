@@ -23,7 +23,6 @@ const CardComponent = ({title, style, lightColor, darkColor, destiny, icon, ...p
     const router = useRouter();
 
     const onPress = () => {
-        console.log(`Navigating to ${destiny}`);
         router.push(destiny as Href);
     }
 
