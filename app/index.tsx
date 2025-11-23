@@ -14,7 +14,7 @@ const HomeScreen = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      router.replace('/(tabs)/courses');
+      router.replace('/(tabs)/dashboard');
     }, 500);
   };
 

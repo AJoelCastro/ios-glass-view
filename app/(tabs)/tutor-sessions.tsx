@@ -30,6 +30,7 @@ const TutorSessionsScreen = () => {
     <SafeAreaBackground>
       <ThemedView style={styles.container}>
         <ThemedText type="title">Sesiones de Tutoría</ThemedText>
+        <CardComponent title="TECSUP-BOT" destiny="/tutor-sessions/assistant" icon="robot-excited-outline"/>
         <CardComponent title="Asistente Personal" destiny="/tutor-sessions/assistant" icon="calendar"/>
         {loading && <ThemedText>Cargando...</ThemedText>}
         {error && <ThemedText>{error}</ThemedText>}

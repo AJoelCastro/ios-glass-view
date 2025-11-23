@@ -1,24 +1,29 @@
-import { CourseCard } from '@/components/course-card';
 import SafeAreaBackground from '@/components/safe-area-background';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { fetchCursos } from '@/services/courseService';
-import { Curso } from '@/types/api';
+import { getEstadisticasUsuarios } from '@/services/userService';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const CoursesScreen = () => {
-  const [cursos, setCursos] = useState<Curso[]>([]);
+const DashboardScreen = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const estadisticas = await getEstadisticasUsuarios();
+      console.log(estadisticas);
+    } catch (err) {
+      setError((err as Error).message || 'Error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     let mounted = true;
-    setLoading(true);
-    fetchCursos()
-      .then((data) => mounted && setCursos(data))
-      .catch((err) => mounted && setError(err.message || 'Error'))
-      .finally(() => mounted && setLoading(false));
+    getData();
     return () => {
       mounted = false;
     };
@@ -27,15 +32,11 @@ const CoursesScreen = () => {
   return (
     <SafeAreaBackground>
       <ThemedView style={styles.container}>
-        <ThemedText type="title">Cursos</ThemedText>
+        <ThemedText type="title">Dashboard</ThemedText>
         
         {loading && <ThemedText>Cargando...</ThemedText>}
         {error && <ThemedText>{error}</ThemedText>}
-        <FlatList
-          data={cursos}
-          keyExtractor={(item) => String(item.id)}
-          renderItem={({ item }) => <CourseCard curso={item} />}
-        />
+        
       </ThemedView>
     </SafeAreaBackground>
   );
@@ -59,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CoursesScreen;
+export default DashboardScreen;

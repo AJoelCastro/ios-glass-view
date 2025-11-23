@@ -1,4 +1,4 @@
-import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { Badge, Icon, Label, NativeTabs, VectorIcon } from 'expo-router/unstable-native-tabs';
 import React from 'react';
 
@@ -7,9 +7,9 @@ export default function TabLayout() {
   return (
     <NativeTabs
     >
-      <NativeTabs.Trigger name="courses">
-        <Label>Courses</Label>
-        <Icon src={<VectorIcon family={AntDesign} name="book" />} />
+      <NativeTabs.Trigger name="dashboard">
+        <Label>Dashboard</Label>
+        <Icon src={<VectorIcon family={MaterialIcons} name="data-exploration" />} />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name='tutor-sessions'>
         <Label>Tutor AI</Label>
