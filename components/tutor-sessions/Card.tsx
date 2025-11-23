@@ -1,9 +1,9 @@
 import { useHookColor } from '@/hooks/use-hook-color';
-import { useRouter, Href } from 'expo-router';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Href, useRouter } from 'expo-router';
 import React, { type ComponentProps } from 'react';
 import { TouchableOpacity, View, ViewProps } from 'react-native';
 import { Card, Icon } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
@@ -23,6 +23,7 @@ const CardComponent = ({title, style, lightColor, darkColor, destiny, icon, ...p
     const router = useRouter();
 
     const onPress = () => {
+        console.log(`Navigating to ${destiny}`);
         router.push(destiny as Href);
     }
 

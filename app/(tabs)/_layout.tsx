@@ -11,7 +11,7 @@ export default function TabLayout() {
         <Label>Dashboard</Label>
         <Icon src={<VectorIcon family={MaterialIcons} name="data-exploration" />} />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name='tutor-sessions'>
+      <NativeTabs.Trigger name='tutor-session'>
         <Label>Tutor AI</Label>
         <Icon sf="book.fill" drawable="custom_android_drawable_tutor" />
       </NativeTabs.Trigger>
